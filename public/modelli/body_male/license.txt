@@ -1,0 +1,11 @@
+Model Information:
+* title:	Body Male
+* source:	https://sketchfab.com/3d-models/body-male-b23a25ab66764946b760ee7f2bce6843
+* author:	cgspektor (https://sketchfab.com/cgspektor)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Body Male" (https://sketchfab.com/3d-models/body-male-b23a25ab66764946b760ee7f2bce6843) by cgspektor (https://sketchfab.com/cgspektor) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
