@@ -30,7 +30,7 @@ scene.add(camera)
  */
 const loader = new GLTFLoader()
 let model3d;
-loader.load( '/dist/modelli/body_male/scene.gltf', function (gltf){
+loader.load( '/public/modelli/body_male/scene.gltf', function (gltf){
   
   model3d = gltf.scene
   gltf.scene.scale.set(30, 30, 30)
