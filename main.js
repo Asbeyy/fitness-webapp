@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
-import humanBody from '/public/modelli/body_male/scene.gltf'
+import humanBody from '/dist/modelli/body_male/scene.gltf'
 
 
 /**
