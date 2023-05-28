@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
-import humanBody from '/modelli/body_male/scene.gltf'
+
 
 
 /**
@@ -30,7 +30,7 @@ scene.add(camera)
  */
 const loader = new GLTFLoader()
 let model3d;
-loader.load( humanBody, function (gltf){
+loader.load( '/dist/modelli/body_male/scene.gltf', function (gltf){
   
   model3d = gltf.scene
   gltf.scene.scale.set(30, 30, 30)
