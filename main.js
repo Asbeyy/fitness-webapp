@@ -27,6 +27,8 @@ camera.position.x = -0.4
 scene.add(camera)
 
 const controls = new OrbitControls( camera, canvas );
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
 
 
 
@@ -102,7 +104,7 @@ scene.add(backPointLight, PointLight, ambienLight)
  * GSAP
  */
 
-gsap.to(document.getElementById('fitness'), { left: -200 , duration: 2})
+//gsap.to(document.getElementById('fitness'), { left: -200 , duration: 2})
 
 
 let section
@@ -152,7 +154,7 @@ function desktopAnimation(){
 
   tl.to(camera.position, {x:-1.65, y:0.44, z:2.44,}, section)
   tl.to(camera.rotation, {x:-0.29, y:-1.05, z:-0.25}, section)
-  tl.to(document.querySelector('.three-body'), {backgroundSize: "100%", duration: 2}, section)
+  tl.to(document.querySelector('.three-body'), {backgroundSize: "150%", duration: 2}, section)
 
   //Section4 Alimentazione
   section += 1
@@ -188,6 +190,39 @@ function ifAnimator(){
 
 
 
+/**
+ * Bottoni
+ */
+const ispezionaButton = document.getElementById('ispezione')
+const headerButton = document.getElementById('header')
+const logoButton = document.getElementById("main-logo")
+const acquistaButton = document.querySelectorAll('.acquista')
+
+ispezionaButton.addEventListener("click", () => {
+  document.querySelector('.webgl').style.zIndex = "1"
+})
+
+
+headerButton.addEventListener("click", () => {
+  document.querySelector('.webgl').style.zIndex = "-1"
+})
+
+
+
+acquistaButton.forEach(button =>{
+  button.addEventListener("click", () => {
+    location.href = "/pages/piani.html"
+  })
+})
+
+
+
+logoButton.addEventListener("click", () => {
+    location.href = "index.html"
+})
+
+
+
 
 /**
  * Animazione
@@ -196,23 +231,6 @@ function ifAnimator(){
 const animazione = () => 
 {
   window.requestAnimationFrame(animazione)
-  
-  // console.log
-  // (
-  //   "P" ,
-  //   (camera.position.x).toFixed(2) ,
-  //   (camera.position.y).toFixed(2) ,
-  //   (camera.position.z).toFixed(2),
-
-  //   "Q" , 
-  //   (camera.rotation.x).toFixed(2) ,
-  //   (camera.rotation.y).toFixed(2) ,
-  //   (camera.rotation.z).toFixed(2)
-
-  // )
-
-    
-
   renderer.render(scene,camera)
 }
 
