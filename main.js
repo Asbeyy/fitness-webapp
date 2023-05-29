@@ -18,10 +18,12 @@ const scene = new THREE.Scene()
  * Camera
  */
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight , 0.1, 1000)
-camera.position.z = 5
+camera.position.z = 4
+camera.position.y = 0.9
+camera.position.x = -0.4
 scene.add(camera)
 
-//const controls = new OrbitControls( camera, canvas );
+const controls = new OrbitControls( camera, canvas );
 
 
 
@@ -34,6 +36,7 @@ loader.load( '/modelli/body_male/scene.gltf', function (gltf){
   
   model3d = gltf.scene
   gltf.scene.scale.set(30, 30, 30)
+  gltf.scene.position.set(0, -0.5, 1)
   scene.add(gltf.scene)
   desktopAnimation()
 })
@@ -50,6 +53,13 @@ const renderer = new THREE.WebGLRenderer({
   alpha: true
 })
 renderer.setSize(window.innerWidth, window.innerHeight)
+
+
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight
+  camera.updateProjectionMatrix()
+  renderer.setSize(window.innerWidth, window.innerHeight)
+})
 
 
 /**
@@ -78,15 +88,15 @@ scene.add(backPointLight, PointLight, ambienLight)
  * GSAP
  */
 
-gsap.to(document.getElementById('fitness'), { x: - window.innerWidth + 150, duration: 2})
+gsap.to(document.getElementById('fitness'), { left: -200 , duration: 2})
 
 
-
+let section
 function desktopAnimation(){
     
   gsap.registerPlugin(ScrollTrigger);
 
-  let section = 0
+  section = 0
 
   const tl = new gsap.timeline({
     defaults:{
@@ -107,20 +117,57 @@ function desktopAnimation(){
   tl.to(camera.position, {z:2, y:1 } , section)
   tl.to(model3d.rotation, {y: - Math.PI / 2}, section)
   tl.to(model3d.position, {x: 1}, section)
-  tl.to(document.querySelector("body"), {background: '#bac4aa'})
+  tl.to(document.querySelector("body"), {background: '#ffffff', section})
+  
+  
+  
   
   //Section2 
   section+= 1
-  tl.to(model3d.rotation ,{y: 6}, section)
-  tl.to(camera.position, {x: 0, y:0, z:10}, section)
-  tl.to(document.querySelector("body"), {background: '#ffffff'})
-
   
+  tl.to(camera.position, {x:0.54, y:1.46, z:1.73} , section)
+  tl.to(camera.rotation, {x:-0.63, y:0.63, z:0.41 } , section)
+  tl.to(model3d.rotation ,{y: 6 }, section)
+  tl.to(model3d.position ,{x: 0 }, section)
+  
+
+  //Section3
+  section+= 1
+
+  //-1.65 0.44 2.44, -0.29 -1.05 -0.25
+
+  tl.to(camera.position, {x:-1.65, y:0.44, z:2.44,}, section)
+  tl.to(camera.rotation, {x:-0.29, y:-1.05, z:-0.25}, section)
+  tl.to(document.querySelector('.three-body'), {backgroundSize: "300%", duration: 2}, section)
+
+  //Section4
+  section += 1
+
+  tl.to(camera.position, {x:-1.60, y:-0.03, z:5.89}, section)
+  tl.to(camera.rotation, {x:-0.04, y:-0.31, z:-0.01}, section)
+  tl.to(model3d.rotation, {y: Math.PI - 0.3}, section)
+  
+  //Section freeman
+  section += 1
   
 
 }
 
 
+
+
+
+
+/**
+ * Trigger Animazioni
+ */
+
+
+function ifAnimator(){
+  if (section === 0){
+    console.log("lmao")
+  }
+}
 
 
 
@@ -132,7 +179,7 @@ function desktopAnimation(){
 const animazione = () => 
 {
   window.requestAnimationFrame(animazione)
-  //
+  
   // console.log
   // (
   //   "P" ,
@@ -146,6 +193,9 @@ const animazione = () =>
   //   (camera.rotation.z).toFixed(2)
 
   // )
+
+    
+
   renderer.render(scene,camera)
 }
 
