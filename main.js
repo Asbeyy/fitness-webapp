@@ -46,16 +46,12 @@ loader.load( '/modelli/body_male/scene.gltf', function (gltf){
 // called while loading is progressing
 function ( xhr ) {
   alert("ok")
-  
-  if (xhr.loaded / xhr.total * 100 === 100){
-    alert("lmao")
-    setTimeout(()=>{
-      gsap.to(document.getElementById('loader-page'), {opacity: 0, duration:1})
-      gsap.to(document.getElementById('loader-page'), {display: 'none', duration:1})
-      gsap.to(document.querySelector('body'), {overflow: "scroll", duration:1})
+  setTimeout(()=>{
+    gsap.to(document.getElementById('loader-page'), {opacity: 0, duration:1})
+    gsap.to(document.getElementById('loader-page'), {display: 'none', duration:1})
+    gsap.to(document.querySelector('body'), {overflow: "scroll", duration:1})
 
-    }, 2000)
-  }
+  }, 2000)
 
 }
 )
