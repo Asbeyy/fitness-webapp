@@ -7,6 +7,7 @@ body{
   background-color: #bac4aa;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   overflow-x: hidden;
+  overflow: hidden;
 }
 
 .header{
@@ -47,6 +48,7 @@ body{
   font-size: 33px ;
   text-align: center ;
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .info{
@@ -101,6 +103,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
  
   padding-top: 0px;
 }
@@ -108,8 +111,8 @@ body{
 .text-hero{
   color: rgb(18, 15, 15);
   font-size: 17px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .title-hero{
@@ -122,19 +125,31 @@ body{
 
 .tre{
   width: 100%;
+  min-height: 100vh;
   background-color: #bac4aa98;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   text-align: justify;
-  padding-top: 30px;
+  margin-top: 20px;
+  align-items: center;
+  padding-bottom: 30px;
 
 }
 
 .quattro{
-  margin-top: 40px;
+
+  width: 100%;
+
+  background-color: #6b78da51;
+  margin-top: 80px;
   text-align: justify;
+  border-radius: 10px;
+  justify-content: center;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
 }
 
@@ -151,6 +166,28 @@ body{
   color: white;
   margin-top: 45px;
   margin-bottom: 45px;
+}
+
+.botton2{
+  height: 50px;
+  width: 80%;
+  border-radius: 12px ;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.154);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(82, 82, 82);
+}
+
+.botton-cont{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 60px;
 }
 
 .cit{
@@ -177,8 +214,48 @@ body{
   height: 200px;
   width: 95%;
   background: url(/media/human-three.png);
-  background-size: 100%;
+  background-size: 70%;
+  background-repeat: no-repeat;
   background-position: center top;
   border-radius: 40px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.146);
 }
+
+.loader-page{
+  height: 100%;
+  width: 100vw;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo-loader{
+  width: 80px;
+  height: 80px;
+  background: url(/public/media/mlteamlogo.png);
+  background-position: center center;
+  background-size: cover;
+}
+
+.text-loader{
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+.food-png{
+  background: url(/public/media/bowl.png);
+  background-size: 160%;
+  background-repeat: no-repeat;
+  background-position: 70% center;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  z-index: 10;
+}
+

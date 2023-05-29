@@ -6,7 +6,10 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
 
-
+window.scrollTo({
+  top: -10,
+  behavior: 'smooth' // Optional: Adds smooth scrolling animation
+});
 
 /**
  * Scene
@@ -39,7 +42,22 @@ loader.load( '/modelli/body_male/scene.gltf', function (gltf){
   gltf.scene.position.set(0, -0.5, 1)
   scene.add(gltf.scene)
   desktopAnimation()
-})
+},
+// called while loading is progressing
+function ( xhr ) {
+
+  
+  if (xhr.loaded / xhr.total * 100 === 100){
+    setTimeout(()=>{
+      gsap.to(document.getElementById('loader-page'), {opacity: 0, duration:1})
+      gsap.to(document.getElementById('loader-page'), {display: 'none', duration:1})
+      gsap.to(document.querySelector('body'), {overflow: "scroll", duration:1})
+
+    }, 2000)
+  }
+
+}
+)
 
 
 
@@ -122,7 +140,7 @@ function desktopAnimation(){
   
   
   
-  //Section2 
+  //Section2 Mente
   section+= 1
   
   tl.to(camera.position, {x:0.54, y:1.46, z:1.73} , section)
@@ -131,25 +149,28 @@ function desktopAnimation(){
   tl.to(model3d.position ,{x: 0 }, section)
   
 
-  //Section3
+  //Section3 Corpo
   section+= 1
 
   //-1.65 0.44 2.44, -0.29 -1.05 -0.25
 
   tl.to(camera.position, {x:-1.65, y:0.44, z:2.44,}, section)
   tl.to(camera.rotation, {x:-0.29, y:-1.05, z:-0.25}, section)
-  tl.to(document.querySelector('.three-body'), {backgroundSize: "300%", duration: 2}, section)
+  tl.to(document.querySelector('.three-body'), {backgroundSize: "100%", duration: 2}, section)
 
-  //Section4
+  //Section4 Alimentazione
   section += 1
 
-  tl.to(camera.position, {x:-1.60, y:-0.03, z:5.89}, section)
+  tl.to(camera.position, {x:-3.60, y:-0.03, z:5.89}, section)
   tl.to(camera.rotation, {x:-0.04, y:-0.31, z:-0.01}, section)
   tl.to(model3d.rotation, {y: Math.PI - 0.3}, section)
   
-  //Section freeman
+  //Section5 freeman
   section += 1
-  
+  tl.to(document.querySelector("body"), {background: '#bac4aa', section})
+  tl.to(model3d.rotation, {y: 4* Math.PI - 0.3}, section)
+  tl.to(camera.position, {x:-1.60, y:-0.03, z:5.89}, section)
+
 
 }
 
