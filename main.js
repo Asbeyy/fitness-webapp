@@ -46,7 +46,7 @@ loader.load( '/modelli/body_male/scene.gltf', function (gltf){
 // called while loading is progressing
 function ( xhr ) {
   setTimeout(()=>{
-    gsap.to(document.getElementById('loader-page'), {opacity: 0, duration:1})
+    gsap.to(document.getElementById('loader-page'), {opacity: 0, duration:0.5})
     gsap.to(document.getElementById('loader-page'), {display: 'none', duration:1})
     gsap.to(document.querySelector('body'), {overflow: "scroll", duration:1})
 
