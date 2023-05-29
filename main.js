@@ -48,6 +48,7 @@ function ( xhr ) {
 
   
   if (xhr.loaded / xhr.total * 100 === 100){
+    alert("lmao")
     setTimeout(()=>{
       gsap.to(document.getElementById('loader-page'), {opacity: 0, duration:1})
       gsap.to(document.getElementById('loader-page'), {display: 'none', duration:1})
