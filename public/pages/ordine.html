@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Fitness | Pagamento</title>
+    <link rel="stylesheet" href="/components/css/ordine.css">
+</head>
+<body>
+
+    <div id="header" class="header">
+        <div id="main-logo" class="container-headbar">
+          <div class="logo"></div>
+          <div class="text-logo"></div>
+        </div>
+        <ion-icon name="grid-outline"></ion-icon>
+    </div>
+
+    
+    <div class="payment-title">
+        <h1>Conferma Ordine</h1>
+
+        <div id="card" class="card">
+            
+        </div>
+
+        <div class="field-container bug">
+            <label for="name">Email di contatto</label>
+            <input id="name" maxlength="20" type="text">
+        </div>
+
+        <div class="field-container bug">
+            <label for="name">Numero di telefono</label>
+            <input id="name" maxlength="20" type="text">
+        </div>
+    </div>
+    
+    <div class="form-container">
+        <div class="field-container">
+            <label for="name">Nome</label> 
+            <input id="name" maxlength="20" type="text">
+        </div>
+        <div class="field-container">
+            <label for="cardnumber">Numero Carta</label>
+            <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+            <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            </svg>
+        </div>
+        <div class="field-container">
+            <label for="expirationdate">Scadenza (mese/anno)</label>
+            <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+        </div>
+        <div class="field-container">
+            <label for="securitycode">CVV</label>
+            <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+        </div>
+    </div>
+
+    <div id="pay" class="button-acq-1 pay"> PAGA </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js"></script>
+    <script type="module" src="/components/js/ordine.js"></script>
+</body>
+</html>
